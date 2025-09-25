@@ -3,6 +3,6 @@
     "ms-vscode.cpptools",
     "ms-vscode.cmake-tools",
     "formulahendry.code-runner",
-    "agrawal-d.cph"
+    "divyanshuagrawal.competitive-programming-helper",
   ]
 }
