@@ -10,7 +10,7 @@
 ## OJ刷题网站
 
 - [信息学奥赛一本通](http://ybt.ssoier.cn:8088/index.php)
-- [洛古](https://www.luogu.com.cn)
+- [洛谷](https://www.luogu.com.cn)
 - [力扣](https://leetcode.cn)
 - [LeetCode](https://leetcode.com)
 - [牛客竞赛](https://ac.nowcoder.com)
