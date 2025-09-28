@@ -2,6 +2,11 @@
   "recommendations": [
     "ms-vscode.cpptools",
     "ms-vscode.cmake-tools",
+    "ms-python.autopep8",
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-python.debugpy",
+    "ms-python.vscode-python-envs",
     "formulahendry.code-runner",
     "divyanshuagrawal.competitive-programming-helper",
   ]

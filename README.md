@@ -20,12 +20,19 @@
 
 ## 使用方法
 
-1. 克隆或下载本仓库到本地.
-2. 使用支持 **C++** 的编译器（如 `g++`）编译运行;
+### `Cpp`使用方法
+
+1. 使用支持 **C++** 的编译器（如 `g++`）编译运行;
    - **windows** 推荐使用[`w64devkit`](https://github.com/skeeto/w64devkit),并配置 **系统环境变量**.
    - **编译器** 推荐使用[`VS Code`](<https://code.visualstudio.com/>),并配置[相关插件](.vscode/extensions.json).
    - **推荐配置视频**:[Mac用Visual Studio Code编写C/C++ 苹果电脑VS Code快速编写C/C++教程](https://www.bilibili.com/video/BV1U741157Rd)
-3. 可在 `main.cpp` 中添加或修改算法代码进行练习.
+2. 可在 `main.cpp` 中添加或修改算法代码进行练习.
+
+### `python`使用方法
+
+1. 使用[**python**](https://www.python.org/) 下载配置 `环境变量` 进行编写与编译;
+   - **IDE**：推荐使用[`VS Code`](<https://code.visualstudio.com/>),并配置[相关插件](.vscode/extensions.json).
+2. 可在 `main.py` 中添加或修改算法代码进行练习.
 
 ## 许可证
 

@@ -1,0 +1,14 @@
+{
+  "files.associations": {
+    "*.dbclient-js": "javascript",
+    ".fantomasignore": "ignore",
+    "*.cjson": "jsonc",
+    "*.wxs": "javascript",
+    "*.wxss": "css",
+    "iostream": "cpp",
+    "iosfwd": "cpp",
+    "ostream": "cpp",
+    "cmath": "cpp"
+  },
+  "python.useEnvironmentsExtension": true,
+}
