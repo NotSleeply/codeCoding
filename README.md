@@ -5,10 +5,14 @@
 ## 学习资源
 
 - [Cppreference](https://cppreference.cn):国际上最权威、最受认可的 C++ 在线**参考手册**和**文档**网站。
-- [菜鸟教程 -- cpp](https://www.runoob.com/cplusplus/cpp-tutorial.html):看不懂**Cppreference**就看**菜鸟**。
+- [菜鸟教程 -- cpp](https://www.runoob.com/cplusplus/cpp-tutorial.html): 看不懂**Cppreference**就看**菜鸟**。
 - [Hello 算法](https://www.hello-algo.com):可快速了解基础算法与数据结构，对于**复杂度**与**具象化演示**特别出众。
 - [代码随想录](https://space.bilibili.com/525438321):白板手撕算法老哥。
 - [英雄哪里出来](https://space.bilibili.com/319521269)与[算法大师兄](https://space.bilibili.com/1784235102):同一个人，ACM 金牌选手，轮椅抽象第一人，专注于买算法课。
+- [Python官方文档](https://docs.python.org/zh-cn/3.13/): 权威。
+- [菜鸟教程 -- py](https://www.runoob.com/python/python-install.html): 看不懂**Python官方文档**就看**菜鸟**。
+- [Hucci写代码](https://space.bilibili.com/1318868/upload/video): 高级特性讲解大佬，一遍就懂。
+- [尚硅谷Python](https://www.bilibili.com/video/BV1eZ421b7ag): 零基础学Python尚硅谷。
 
 ## OJ刷题网站
 
