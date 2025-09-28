@@ -26,6 +26,7 @@ Thumbs.db
 *.dll
 *.so
 *.dylib
+*.bin
 
 # IDE/工程相关文件
 .cbp/*
