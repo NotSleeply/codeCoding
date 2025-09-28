@@ -36,6 +36,8 @@
 
 - [牛客竞赛](https://ac.nowcoder.com)
 
+- [辽科大 OJ](https://vpn.ustl.edu.cn/portal/#/app_center)
+
 ## 使用方法
 
 ### `Cpp`使用方法
