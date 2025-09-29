@@ -66,4 +66,6 @@
 
 ## 小小标志
 
-<img src="doc/PyOJ2025-9-20.png" alt="PyOJ2025-9-20" style="width:300px;">
+<div align="center">
+  <img src="doc/PyOJ2025-9-20.png" alt="PyOJ2025-9-20" style="width:500px;">
+</div>
