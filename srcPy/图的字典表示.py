@@ -14,17 +14,17 @@ if __name__ == "__main__":
         # 获取节点 A
         frist = dictLine.keys()  # dict_keys(['A'])
         frist_list = list(frist)  # ['A']
-        node_header = frist_list[0]  # A
-        nodes.add(node_header)
+        node = frist_list[0]  # A
+        nodes.add(node)
 
         # 获取被链接的节点 A:{}
-        dicts_nodes_by = dictLine[node_header]  # {'B': 5, 'C': 10, 'D': 15}
+        dicts_nodes_by = dictLine[node]  # {'B': 5, 'C': 10, 'D': 15}
 
         for dot, length in dicts_nodes_by.items():
             nodes.add(dot)
 
             # 把两个顶点组成的边变成“无向边”的标准形式
-            listOrder = sorted([node_header, dot])  # ['A', 'B']
+            listOrder = sorted([node, dot])  # ['A', 'B']
             edge = tuple(listOrder)    # ('A', 'B')
 
             # 添加边
