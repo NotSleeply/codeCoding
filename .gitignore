@@ -8,6 +8,7 @@
 # VSCode 配置文件
 .vscode/tasks.json
 .vscode/launch.json
+.idea/
 
 # 日志文件
 *.log
