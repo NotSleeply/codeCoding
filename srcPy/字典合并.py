@@ -1,4 +1,4 @@
-def get_sort_key(item):
+def fSort(item):
     """
     排序键函数
     规则：
@@ -38,14 +38,18 @@ if __name__ == "__main__":
         if key in dict2:
             result[key] = dict1[key] + dict2[key]
         else:
-            result[key] = dict1[key]  
+            result[key] = dict1[key]
     # {1: 8, '2': 5, 3: 10}
-    
+
     for key in dict2:
         if key not in dict1:
             result[key] = dict2[key]
     # {1: 8, '2': 5, 3: 10, '3': 7, 'b': 9}
 
     # 排序
-    sorted_dict = dict(sorted(result.items(), key=get_sort_key))
+    twoTup = result.items()  
+    # dict_items([(1, 8), ('2', 5), (3, 10), ('3', 7), ('b', 9)])
+    sort_tup = sorted(twoTup, key=fSort)
+    # [(1, 8), (3, 10), ('2', 5), ('3', 7), ('b', 9)]
+    sorted_dict = dict(sort_tup)
     print(sorted_dict)
