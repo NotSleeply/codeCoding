@@ -1,0 +1,11 @@
+def SELsORT(NUMS):
+    N= LEN(NUMS)
+    for BOTTOM in RANGE(N-1):
+        MI= BOTTOM
+        for I in RANGE(MI+1, N):
+            if NUMS[I]< NUMS[MI]:
+                MI= I
+        NUMS[BOTTOM], NUMS[MI]= NUMS[MI], NUMS[BOTTOM]
+    return NUMS
+NUMBERS=[49,38, 65,97,76,13,27,49]
+print(SELsORT(NUMBERS))
