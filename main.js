@@ -14,6 +14,7 @@ const dog = {
 const cat = {
   name: "咪咪",
 };
+
 // call 会立即执行函数，并且改变 this 指向
 dog.sayName.call(cat); // 输出 '咪咪'
 dog.eat.call(cat, "🐟"); // 输出 '咪咪 在吃🐟'
