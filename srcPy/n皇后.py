@@ -41,11 +41,13 @@ def queens(num: int = 8, board: List[int] = []) -> None:
 
 def main() -> None:
     """主函数"""
-    queens(4)
+    queens(8)
     '''
+    4个 Queens 问题解法示例输出：
     [1, 3, 0, 2]
     [2, 0, 3, 1]
     '''
+    print(f'共找到 {len(result)} 种解法：')
     for i in result:
         print(i)
 
