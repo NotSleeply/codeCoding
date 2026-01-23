@@ -41,3 +41,5 @@ bin/*
 obj/*
 bin/
 obj/
+.dat
+*.dat

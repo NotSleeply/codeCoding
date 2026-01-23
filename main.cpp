@@ -1,46 +1,57 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 判断质数
-bool is_prime(long long n)
-{
-    if (n <= 1)
-        return false;
-    for (long long i = 2; i * i <= n; i++)
-    {
-        if (n % i == 0)
-            return false;
-    }
-    return true;
-}
-
 int main(void)
 {
-    long long n;
+    int n;
     cin >> n;
-    if (n == 1)
+    int res = 0;
+    vector<vector<char>> arr(n, vector<char>(n));
+    for (int i = 0; i < n; i++)
     {
-        cout << 0 << " " << 0 << endl;
-        return 0;
-    }
-    if (is_prime(n))
-    {
-        cout << n << " " << 1 << endl;
-        return 0;
-    }
-    // 幂次分解
-    for (long long i = 2; i * i <= n; i++)
-    {
-        if (n % i == 0)
+        for (int j = 0; j < n; j++)
         {
-            long long count = 0;
-            while (n % i == 0)
+            cin >> arr[i][j];
+            if (arr[i][j] == '@')
             {
-                n /= i;
-                count++;
+                res++;
             }
-            cout << i << " " << count << endl;
-            return 0;
         }
     }
+    int x;
+    cin >> x;
+    while (x--)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                if (arr[i][j] == '!')
+                {
+                    arr[i][j] = '@';
+                    res++;
+                }
+                else if (arr[i][j] == '@')
+                {
+                    if (i > 0 && arr[i - 1][j] == '.')
+                    {
+                        arr[i - 1][j] = '!';
+                    }
+                    if (j > 0 && arr[i][j - 1] == '.')
+                    {
+                        arr[i][j - 1] = '!';
+                    }
+                    if (i < n - 1 && arr[i + 1][j] == '.')
+                    {
+                        arr[i + 1][j] = '!';
+                    }
+                    if (j < n - 1 && arr[i][j + 1] == '.')
+                    {
+                        arr[i][j + 1] = '!';
+                    }
+                }
+            }
+        }
+    }
+    cout << res;
 }
