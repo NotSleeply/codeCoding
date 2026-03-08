@@ -2,26 +2,34 @@ package main
 
 import (
 	"fmt"
-	"log"
-	"os"
+	"reflect"
 )
 
+type Calculator struct{}
+
+func (c Calculator) Add(a, b int) int {
+	return a + b
+}
+
 func main() {
-	// Println、Print、Printf 控制台
-	fmt.Println("Hello, World!")
-	fmt.Print("this is Print,so need add ?\n")
-	fmt.Printf("this is Printf,so can %d\n", 123)
+	a := 10
+	b := 20
 
-	// Sprint、Sprintf、Sprintln 字符串
-	msg := fmt.Sprintf("id=%d name=%s", 10, "Tom")
-	fmt.Println(msg)
+	calc := Calculator{}
+	v := reflect.ValueOf(calc)
 
-	// Fprint、Fprintf、Fprintln 文件
-	f, err := os.Create("out.txt")
-	if err != nil {
-		log.Fatal(err)
+	// 获取名为 "Add" 的方法
+	method := v.MethodByName("Add")
+
+	// 准备传入的参数（必须是 reflect.Value 的切片）
+	args := []reflect.Value{
+		reflect.ValueOf(a),
+		reflect.ValueOf(b),
 	}
-	defer f.Close()
-	fmt.Fprintln(f, "file log: ", 42)
 
+	// 动态调用
+	results := method.Call(args)
+
+	// 获取返回值
+	fmt.Printf("动态调用 Add 结果: %d\n", results[0].Int()) // 输出: 30
 }

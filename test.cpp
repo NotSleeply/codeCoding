@@ -1,17 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
-int a[1000005],b[1000005],n;
+
 int main(void)
 {
-	cin>>n;
-	for(int i = 1;i<=n;i++) cin>>a[i];
-	b[1]=1;
-	b[2]=2;
-	for(int i =3;i<=1000000;i++){
-		b[i]=(2*b[i-1]+b[i-2])%32767;
+	int x,y;
+	cin>>x>>y;
+	int arr[21][21];
+	arr[1][1]=1;
+	for(int i =2;i<=x;i++) arr[i][1]=arr[i-1][1];
+	for(int i =2;i<=y;i++) arr[1][i]=arr[1][i-1];
+	for(int i =2;i<=x;i++){
+		for(int j =2;j<=y;j++){
+			arr[i][j]=arr[i-1][j]+arr[i][j-1];
+		}
 	}
-	for(int i=1;i<=n;i++){
-		cout<<b[a[i]]<<endl;
-	}
+	cout<<arr[x][y];
 }
 
