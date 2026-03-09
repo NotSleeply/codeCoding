@@ -1,35 +1,20 @@
 package main
 
 import (
+	"embed"
 	"fmt"
-	"reflect"
+	"io/fs"
 )
 
-type Calculator struct{}
-
-func (c Calculator) Add(a, b int) int {
-	return a + b
-}
+// 关键：用 //go:embed 指令把 static 目录下的所有文件嵌入程序
+var embeddedFS embed.FS
 
 func main() {
-	a := 10
-	b := 20
-
-	calc := Calculator{}
-	v := reflect.ValueOf(calc)
-
-	// 获取名为 "Add" 的方法
-	method := v.MethodByName("Add")
-
-	// 准备传入的参数（必须是 reflect.Value 的切片）
-	args := []reflect.Value{
-		reflect.ValueOf(a),
-		reflect.ValueOf(b),
+	// 用 fs 包的通用函数读取嵌入的文件
+	data, err := fs.ReadFile(embeddedFS, "static/index.html")
+	if err != nil {
+		fmt.Println("读取嵌入文件失败：", err)
+		return
 	}
-
-	// 动态调用
-	results := method.Call(args)
-
-	// 获取返回值
-	fmt.Printf("动态调用 Add 结果: %d\n", results[0].Int()) // 输出: 30
+	fmt.Println("嵌入的 index.html 内容：", string(data))
 }
