@@ -64,8 +64,15 @@ func handleClientConn(conn *net.TCPConn) {
 			return
 		}
 
-		// 向客户端发送响应
-		response := fmt.Sprintf("【服务端回声】%s\n", msg)
+		// special command: return client address
+		var response string
+		if msg == "ip" {
+			response = clientAddr + "\n"
+		} else {
+			// 普通回声响应
+			response = fmt.Sprintf("【服务端回声】%s\n", msg)
+		}
+
 		_, err = conn.Write([]byte(response))
 		if err != nil {
 			fmt.Printf("向客户端 [%s] 发送数据失败：%v\n", clientAddr, err)
