@@ -74,3 +74,8 @@ func handleClientConn(conn *net.TCPConn) {
 		fmt.Printf("客户端 [%s] 发送：%s → 响应：%s", clientAddr, msg, strings.TrimSpace(response))
 	}
 }
+
+func main() {
+	fmt.Println("启动服务...")
+	startTCPServer()
+}

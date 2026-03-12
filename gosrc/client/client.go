@@ -61,3 +61,8 @@ func startTCPClient() {
 		fmt.Printf("服务端回复：%s", strings.TrimSpace(response))
 	}
 }
+
+func main() {
+	fmt.Println("启动客户端...")
+	startTCPClient()
+}
