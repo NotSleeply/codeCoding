@@ -1,88 +1,40 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"net"
-	"strings"
+	"net/rpc"
 )
 
-// 启动TCP服务端
-func startTCPServer() {
-	// 解析地址
-	tcpAddr, err := net.ResolveTCPAddr("tcp", ":8888")
-	if err != nil {
-		fmt.Printf("解析地址失败：%v\n", err)
-		return
-	}
-
-	// 监听端口
-	listener, err := net.ListenTCP("tcp", tcpAddr)
-	if err != nil {
-		fmt.Printf("监听端口失败：%v\n", err)
-		return
-	}
-	defer listener.Close()
-	fmt.Println("等待客户端连接...")
-
-	// 接受客户端连接
-	for {
-		conn, err := listener.AcceptTCP() // 阻塞等待新连接
-		if err != nil {
-			fmt.Printf("接受连接失败：%v\n", err)
-			continue
-		}
-		// 并发处理每个客户端连接（避免阻塞其他连接）
-		go handleClientConn(conn)
-	}
+// 1. 定义传入的参数结构体
+type Args struct {
+	A, B int
 }
 
-// 处理单个客户端连接
-func handleClientConn(conn *net.TCPConn) {
-	clientAddr := conn.RemoteAddr().String() // 获取客户端地址
-	fmt.Printf("客户端 [%s] 已连接\n", clientAddr)
-	defer func() {
-		conn.Close()
-		fmt.Printf("客户端 [%s] 已断开连接\n", clientAddr)
-	}()
+// 2. 定义服务结构体
+type MathService struct{}
 
-	// 创建缓冲区读取客户端数据
-	reader := bufio.NewReader(conn)
-	for {
-		// 读取客户端发送的数据
-		msg, err := reader.ReadString('\n')
-		if err != nil {
-			if err.Error() == "EOF" {
-				return
-			}
-			fmt.Printf("读取客户端 [%s] 数据失败：%v\n", clientAddr, err)
-			return
-		}
-
-		msg = strings.TrimSpace(msg)
-		if msg == "exit" {
-			return
-		}
-
-		// special command: return client address
-		var response string
-		if msg == "ip" {
-			response = clientAddr + "\n"
-		} else {
-			// 普通回声响应
-			response = fmt.Sprintf("【服务端回声】%s\n", msg)
-		}
-
-		_, err = conn.Write([]byte(response))
-		if err != nil {
-			fmt.Printf("向客户端 [%s] 发送数据失败：%v\n", clientAddr, err)
-			return
-		}
-		fmt.Printf("客户端 [%s] 发送：%s → 响应：%s", clientAddr, msg, strings.TrimSpace(response))
-	}
+// 3. 实现服务方法（严格遵守 5 条规则）
+func (m *MathService) Multiply(args Args, reply *int) error {
+	*reply = args.A * args.B
+	fmt.Printf("服务端执行：计算 %d * %d\n", args.A, args.B)
+	return nil
 }
 
 func main() {
-	fmt.Println("启动服务...")
-	startTCPServer()
+	// 实例化服务
+	math := new(MathService)
+
+	// 注册 RPC 服务，客户端就可以通过 "MathService.Multiply" 来调用了
+	rpc.Register(math)
+
+	// 启动 TCP 监听
+	listener, err := net.Listen("tcp", ":1234")
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println("RPC 服务端已启动，监听端口 1234...")
+
+	// 接收请求并处理
+	rpc.Accept(listener)
 }
