@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=
+  , initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    .menu {
+      display: none;
+      border: 1px solid #000;
+      padding: 10px;
+    }
+
+    .show {
+      display: block;
+    }
+  </style>
+
+  <div id="navBtn">导航</div>
+  <div id="menu" class="menu">
+    <div>选项1</div>
+    <div>选项2</div>
+  </div>
+  <div>其他内容</div>
+  <script>
+    const navBtn = document.getElementById('navBtn');
+    const menu = document.getElementById('menu');
+
+    navBtn.addEventListener('click', () => {
+      menu.classList.toggle('show');
+    });
+  </script>
+</body>
+
+</html>
