@@ -11,4 +11,11 @@
     "cmath": "cpp"
   },
   "python.useEnvironmentsExtension": true,
+  "cph.language.cpp.Command": "/usr/local/bin/g++-15",
+  "cph.language.cpp.Args": "-std=c++17 -O2 -Wall -Wextra",
+  "code-runner.runInTerminal": true,
+  "code-runner.executorMap": {
+    "cpp": "cd $dir && /usr/local/bin/g++-15 -std=c++17 -O2 -Wall -Wextra -o $fileNameWithoutExt $fileName && ./$fileNameWithoutExt"
+  },
+  "python.languageServer": "None"
 }
